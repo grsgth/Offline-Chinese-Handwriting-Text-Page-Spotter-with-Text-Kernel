@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import torch
 import numpy as np
 from utils.hwdb2_0_chars import char_set
@@ -110,7 +110,7 @@ if __name__ == '__main__':
             CR_all / All_all, AR_all / All_all, (CHAR_COUNT_ALL - EDIT_DISTANCE_ALL) / CHAR_COUNT_ALL,
             Precision, Recall, F1))
         pbar.update(1)
-=======
+
 import torch
 import numpy as np
 from utils.hwdb2_0_chars import char_set
@@ -222,4 +222,4 @@ if __name__ == '__main__':
             CR_all / All_all, AR_all / All_all, (CHAR_COUNT_ALL - EDIT_DISTANCE_ALL) / CHAR_COUNT_ALL,
             Precision, Recall, F1))
         pbar.update(1)
->>>>>>> 150fd5bc2e07ecd3476ca5859adbd3c12b95a406
+

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import torch
 from torch import nn
 import torch.nn.functional as F
@@ -479,7 +479,7 @@ def get_out_point(x1, y1, x2, y2, contour, r):
 #         cv2.imshow('1', img)
 #         cv2.imshow('2', pt_kernel)
 #         cv2.waitKey()
-=======
+
 import torch
 from torch import nn
 import torch.nn.functional as F
@@ -960,4 +960,4 @@ def get_out_point(x1, y1, x2, y2, contour, r):
 #         cv2.imshow('1', img)
 #         cv2.imshow('2', pt_kernel)
 #         cv2.waitKey()
->>>>>>> 150fd5bc2e07ecd3476ca5859adbd3c12b95a406
+

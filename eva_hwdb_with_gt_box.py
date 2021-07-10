@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import torch
 import numpy as np
 import cv2
@@ -105,7 +105,7 @@ if __name__ == '__main__':
         pbar.display('CR:{:.6f} AR:{:.6f} edit_d:{:.6f}\n'.format(
             CR_all / All_all, AR_all / All_all, (char_c_a - edit_d_a) / char_c_a))
         pbar.update(1)
-=======
+
 import torch
 import numpy as np
 import cv2
@@ -211,4 +211,4 @@ if __name__ == '__main__':
         pbar.display('CR:{:.6f} AR:{:.6f} edit_d:{:.6f}\n'.format(
             CR_all / All_all, AR_all / All_all, (char_c_a - edit_d_a) / char_c_a))
         pbar.update(1)
->>>>>>> 150fd5bc2e07ecd3476ca5859adbd3c12b95a406
+

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from models.dect import PANnet
 from models.reco import DenseNet_with_TCN_big
 from models.connect_layer_new_one_batch_hwdb import Connect
@@ -55,7 +55,7 @@ if __name__ == '__main__':
         model(x, torch.tensor([[[[100, 100], [400, 100], [400, 80], [100, 80]],
                                  ]]),
               True)
-=======
+
 from models.dect import PANnet
 from models.reco import DenseNet_with_TCN_big
 from models.connect_layer_new_one_batch_hwdb import Connect
@@ -112,4 +112,4 @@ if __name__ == '__main__':
         model(x, torch.tensor([[[[100, 100], [400, 100], [400, 80], [100, 80]],
                                  ]]),
               True)
->>>>>>> 150fd5bc2e07ecd3476ca5859adbd3c12b95a406
+
