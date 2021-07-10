@@ -1984,3 +1984,4 @@ pinyin_dict = {'!': 0, '"': 1, '%': 2, "'": 3, '(': 4, ')': 5, ',': 6, '-': 7, '
 # for i, c in enumerate(hwdb_2_chars):
 #     hwdb_2_chars_dict[c] = i
 # print(hwdb_2_chars_dict)
+
