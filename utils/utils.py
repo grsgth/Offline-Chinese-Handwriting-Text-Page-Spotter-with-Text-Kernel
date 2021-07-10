@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time    : 1/4/19 11:18 AM
-# @Author  : zhoujun
 import cv2
 import time
 import torch

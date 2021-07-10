@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import torch
 import difflib
 import numpy as np
@@ -217,7 +217,7 @@ def ctc_acc(char_set,preds, labels, label_length,blank=0, p=True, bean_search=Fa
 #     target = torch.randint(low=1, high=C, size=(N,T), dtype=torch.long)
 #     ctc_loss(criterion,[input],[target],[input_lengths],[target_lengths])
 
-=======
+
 import torch
 import difflib
 import numpy as np
@@ -436,4 +436,3 @@ def ctc_acc(char_set,preds, labels, label_length,blank=0, p=True, bean_search=Fa
 #     target = torch.randint(low=1, high=C, size=(N,T), dtype=torch.long)
 #     ctc_loss(criterion,[input],[target],[input_lengths],[target_lengths])
 
->>>>>>> 150fd5bc2e07ecd3476ca5859adbd3c12b95a406

@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2019/11/1 15:31
-# @Author  : zhoujun
-
 import torch
 import torch.nn as nn
 from torchvision.models.utils import load_state_dict_from_url

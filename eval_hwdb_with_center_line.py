@@ -1,4 +1,3 @@
-
 import torch
 import numpy as np
 from utils.hwdb2_0_chars import char_set
