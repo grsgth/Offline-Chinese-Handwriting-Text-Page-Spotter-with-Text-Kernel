@@ -56,7 +56,7 @@ def eval(model, evel_dataset, criterion_kernel, criterion_char, epoch, is_save=T
             loss_all += 0.0 * loss_kernel_item + loss_char_item
             loss_char_all += loss_char_item
             loss_kernel_all += loss_kernel_item
-            # pbar.set_description(str((loss_kernel.item(),loss_char.item(),loss_all/(train_step+1))))
+
             AR = a_AR_correct_chars / (a_all_chars + 1)
             CR = a_CR_correct_chars / (a_all_chars + 1)
             if evel_step % 10 == 0:
@@ -83,7 +83,6 @@ def eval(model, evel_dataset, criterion_kernel, criterion_char, epoch, is_save=T
                                CR_correct_chars / all_chars,
                                AR,
                                CR))
-                # print('loss_kernel:{:.4f} loss_char:{:.4f} AR:{:.4f} CR:{.4f}'.format(loss_kernel_item, loss_char_item,AR,CR))
 
                 pbar.update(10)
     pbar.close()
@@ -169,17 +168,7 @@ def train(model, optimizer, train_dataset, criterion_kernel, criterion_char, epo
         # pbar.set_description(str((loss_kernel.item(),loss_char.item(),loss_all/(train_step+1))))
         AR = a_AR_correct_chars / (a_all_chars + 1)
         CR = a_CR_correct_chars / (a_all_chars + 1)
-        # if (train_step + 1)   == 500:
-        #     torch.save(model.state_dict(), './output/with_tcn_big_icdar/model_innorm_'
-        #                                    'epoch_{}_'
-        #                                    'loss_char_all_{:.4f}_'
-        #                                    'loss_kernel_all_{:.4f}_'
-        #                                    'AR_{:.6f}_'
-        #                                    'CR_{:.6f}.pth'.format(epoch,
-        #                                                           loss_char_all / (train_step + 1),
-        #                                                           loss_kernel_all / (train_step + 1),
-        #                                                           AR,
-        #                                                           CR))
+
         if (train_step + 1) % 10 == 0:
             torch.cuda.empty_cache()
         if (train_step + 1) % 10 == 0:
@@ -228,19 +217,17 @@ if __name__ == '__main__':
             # './data/gen_for_icdar',
             # './data/gen_for_icdar1'
         ], char_dict,
-        data_shape=1600, n=2, m=0.5,
+        data_shape=1600, n=2, m=0.6,
         transform=transforms.ToTensor(), max_text_length=80)
     evel_data = MyDataset(
         [
             '/home/project/hwdb_dect_reco/data/hwdb2/HWDB2.0Test',
-            # '/home/project/hwdb_dect_reco/data/hwdb2/HWDB2.0Train',
             '/home/project/hwdb_dect_reco/data/hwdb2/HWDB2.1Test',
-            # '/home/project/hwdb_dect_reco/data/hwdb2/HWDB2.1Train',
             '/home/project/hwdb_dect_reco/data/hwdb2/HWDB2.2Test',
-            # '/home/project/hwdb_dect_reco/data/hwdb2/HWDB2.2Train',
+
         ], char_dict,
 
-        data_shape=1600, n=2, m=0.5,
+        data_shape=1600, n=2, m=0.6,
         transform=transforms.ToTensor(), max_text_length=80, is_train=False)
     criterion_kernel = DICE_loss().to(device)
     criterion_char = torch.nn.CTCLoss(blank=0, zero_infinity=True).to(device)
@@ -256,17 +243,14 @@ if __name__ == '__main__':
     # model_dict.update(pre_dict)
     # model.load_state_dict(model_dict)
 
-    model.load_state_dict(torch.load(
-        r'./output/with_tcn_big_hwdb_all_t'
-        r'/model_c_epoch_50_loss_char_all_0.0642_loss_kernel_all_0.1226_AR_0.987677_CR_0.990463.pth'))
+    # model.load_state_dict(torch.load(
+    #     r'./output/with_tcn_big_hwdb_all_t'
+    #     r'/model_c_epoch_50_loss_char_all_0.0642_loss_kernel_all_0.1226_AR_0.987677_CR_0.990463.pth'))
     log_writer = open('./output/with_tcn_big_hwdb_all_t/log.txt', 'a', encoding='utf-8')
 
     # eval(model, evel_data, criterion_kernel, criterion_char, 0,is_save=False)
 
     for epoch in range(0, 50):
-        # optimizer = optim.SGD(
-        #     model.parameters(), lr=0.0001 * 0.9 ** epoch,momentum=0.9)
-
         optimizer = optim.Adam(
             model.parameters(), lr=0.0001 * 0.9 ** (epoch), betas=(0.5, 0.999))
 
